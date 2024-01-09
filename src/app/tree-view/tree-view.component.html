@@ -1,0 +1,22 @@
+<!-- tree-view.component.html -->
+
+<h2>Tree View</h2>
+
+<!-- Angular Material tree -->
+<mat-tree [dataSource]="treeData" [treeControl]="treeControl">
+  <!-- Tree node template -->
+  <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+    {{ node.name }}
+    <button mat-icon-button (click)="editNode(node)">Edit</button>
+    <button mat-icon-button (click)="deleteNode(node)">Delete</button>
+  </mat-tree-node>
+
+  <!-- Recursively render child nodes -->
+  <ng-container *ngFor="let child of getChildren(node)">
+    <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+      {{ node.name }}
+      <button mat-icon-button (click)="editNode(node)">Edit</button>
+      <button mat-icon-button (click)="deleteNode(node)">Delete</button>
+    </mat-tree-node>
+  </ng-container>
+</mat-tree>

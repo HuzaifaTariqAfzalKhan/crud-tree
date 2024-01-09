@@ -1,0 +1,12 @@
+<!-- node-form.component.html -->
+
+<div class="node-form">
+  <h2>Create Node</h2>
+
+  <!-- Node creation form -->
+  <form (submit)="createNode()">
+    <label for="nodeName">Node Name:</label>
+    <input type="text" id="nodeName" [(ngModel)]="newNode.name" name="nodeName" required />
+    <button type="submit">Create</button>
+  </form>
+</div>
